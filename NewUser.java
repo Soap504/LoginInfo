@@ -5,7 +5,6 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
 import java.util.HashMap;
 
 public class NewUser implements ActionListener{
@@ -22,9 +21,6 @@ public class NewUser implements ActionListener{
    
     
     NewUser(){
-        
-
-
         newUserNameLabel.setBounds(50,100,75,25);
         passwordLabel.setBounds(50,150,75,25);
 
@@ -57,12 +53,7 @@ public class NewUser implements ActionListener{
             String userID = usernameField.getText();
             String password = String.copyValueOf(passwordField.getPassword());
             idandPasswords.setHashing(userID, password);
-            try {
-                idandPasswords.sendToFile();
-            } catch (IOException e1) {
-                // TODO Auto-generated catch block
-                e1.printStackTrace();
-            }
+            idandPasswords.sendToFile();
             frame.dispose();
             LoginPage loginPage = new LoginPage(idandPasswords.getLoginInfo());
 
